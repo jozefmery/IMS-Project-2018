@@ -39,7 +39,7 @@ HDREXT 		= hpp
 # compiler options 
 CC          = g++
 PLATFORM	= -m64
-CFLAGS      = -pedantic -Wextra -Wall
+CFLAGS      = -pedantic -Wextra -Wall $(PLATFORM)
 RELCFLAGS	= -O2 -s -DNDEBUG -flto
 DCFLAGS		= -g -O0
 STD			= c++17
@@ -48,7 +48,7 @@ EXTRACFLAGS = #-Werror
 INCLUDES 	= $(addprefix -I,)
 
 # linker options
-LFLAGS		= 
+LFLAGS		= $(PLATFORM)
 
 # link libraries
 LIBS		= $(addprefix -l, )
@@ -85,19 +85,19 @@ $(BINDIR):
 
 # compile in release mode
 $(OBJDIR)/$(RELDIR)/%.$(OBJEXT): $(SRCDIR)/%.$(SRCEXT) $(HEADERS) | $(OBJDIR)/$(RELDIR)
-	$(CC) $(CFLAGS) $(EXTRACFLAGS) -I./$(INCLUDEDIR) $(INCLUDES) -std=$(STD) $(PLATFORM) $(RELCFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(EXTRACFLAGS) -I./$(INCLUDEDIR) $(INCLUDES) -std=$(STD) $(RELCFLAGS) -c $< -o $@
 
 # link release objects
 $(BINDIR)/$(TARGET): $(RELOBJECTS) | $(BINDIR)
-	$(CC) $< $(LIBS) $(LIBDIRS) -o $@
+	$(CC) $< $(LIBS) $(LIBDIRS) $(LFLAGS) -o $@
 
 # compile in debug mode
 $(OBJDIR)/$(DDIR)/%.$(OBJEXT): $(SRCDIR)/%.$(SRCEXT) $(HEADERS) | $(OBJDIR)/$(DDIR)
-	$(CC) $(CFLAGS) $(EXTRACFLAGS) -I./$(INCLUDEDIR) $(INCLUDES) -std=$(STD) $(PLATFORM) $(DCFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(EXTRACFLAGS) -I./$(INCLUDEDIR) $(INCLUDES) -std=$(STD) $(DCFLAGS) -c $< -o $@
 
 # link debug objects
 $(BINDIR)/$(TARGET)_d: $(DOBJECTS) | $(BINDIR)
-	$(CC) $< $(LIBS) $(LIBDIRS) -o $@
+	$(CC) $< $(LIBS) $(LIBDIRS) $(LFLAGS) -o $@
 
 release: $(BINDIR)/$(TARGET)
 debug: $(BINDIR)/$(TARGET)_d

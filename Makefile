@@ -44,6 +44,7 @@ RELCFLAGS	= -O2 -s -DNDEBUG -flto
 DCFLAGS		= -g -O0
 STD			= c++17
 EXTRACFLAGS = #-Werror
+
 # additional includes
 INCLUDES 	= $(addprefix -I,)
 
@@ -89,7 +90,7 @@ $(OBJDIR)/$(RELDIR)/%.$(OBJEXT): $(SRCDIR)/%.$(SRCEXT) $(HEADERS) | $(OBJDIR)/$(
 
 # link release objects
 $(BINDIR)/$(TARGET): $(RELOBJECTS) | $(BINDIR)
-	$(CC) $< $(LIBS) $(LIBDIRS) $(LFLAGS) -o $@
+	$(CC) $^ $(LIBS) $(LIBDIRS) $(LFLAGS) -o $@
 
 # compile in debug mode
 $(OBJDIR)/$(DDIR)/%.$(OBJEXT): $(SRCDIR)/%.$(SRCEXT) $(HEADERS) | $(OBJDIR)/$(DDIR)
@@ -97,7 +98,7 @@ $(OBJDIR)/$(DDIR)/%.$(OBJEXT): $(SRCDIR)/%.$(SRCEXT) $(HEADERS) | $(OBJDIR)/$(DD
 
 # link debug objects
 $(BINDIR)/$(TARGET)_d: $(DOBJECTS) | $(BINDIR)
-	$(CC) $< $(LIBS) $(LIBDIRS) $(LFLAGS) -o $@
+	$(CC) $^ $(LIBS) $(LIBDIRS) $(LFLAGS) -o $@
 
 release: $(BINDIR)/$(TARGET)
 debug: $(BINDIR)/$(TARGET)_d

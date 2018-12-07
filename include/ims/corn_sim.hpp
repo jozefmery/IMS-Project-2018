@@ -51,6 +51,12 @@ namespace IMS {
 
         static Options parse_options(const ParsedArguments& args);
 
+        static void print_help();
+
+        static inline std::string get_usage();
+        static inline std::string get_help();
+        static inline std::string get_examples();
+
     private /* methods */:
 
     private /* members */:

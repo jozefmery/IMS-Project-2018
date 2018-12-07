@@ -2,6 +2,8 @@
 #include <stdexcept>
 #include <string>
 
+constexpr auto PROGRAM_NAME = "cornsim"; 
+
 namespace IMS {
 
     enum ExitCode : int {

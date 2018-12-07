@@ -8,8 +8,8 @@
 # $< - first dep
 # $^ - all deps
 
-LOGIN1		= xdovic01
-LOGIN2 		= xmeryj00
+LOGIN1 		= xmeryj00
+LOGIN2		= xdovic01
 
 # use this for final archive name
 ARCHIVE 	= 05_$(LOGIN1)_$(LOGIN2)
@@ -29,7 +29,7 @@ ARCHIVER 	= zip
 DIRMAKER 	= @mkdir -p
 
 # target name
-TARGET      = ims
+TARGET      = cornsim
 
 # file extensions
 SRCEXT 		= cpp
@@ -52,10 +52,10 @@ INCLUDES 	= $(addprefix -I,)
 LFLAGS		= $(PLATFORM)
 
 # link libraries
-LIBS		= $(addprefix -l, )
+LIBS		= $(addprefix -l, simlib)
 LIBDIRS		= $(addprefix -L, )
 
-default: $(BINDIR)/$(TARGET)
+default: release
 all: default
 .PHONY: default all clean run archive crun debug release
 

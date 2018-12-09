@@ -13,7 +13,7 @@ enum ValueType : char {
 
 using ParsedHelper = std::pair<std::vector<std::string>, std::vector<ValueType>>;
 
-ParsedHelper parse_short_otps(const IMS::ShortOpts& opts) {
+ParsedHelper parse_short_args(const IMS::ShortOpts& opts) {
 
     ParsedHelper arg_set;
 
@@ -45,7 +45,7 @@ ParsedHelper parse_short_otps(const IMS::ShortOpts& opts) {
     return arg_set;
 }
 
-ParsedHelper parse_long_opts(const IMS::LongOpts& opts) {
+ParsedHelper parse_long_args(const IMS::LongOpts& opts) {
 
     ParsedHelper arg_set;
 
@@ -85,8 +85,8 @@ IMS::ParsedArguments IMS::parse_arguments(const int argc,
         args.emplace_back(argv[i]);
     }
 
-    auto parsed_short = parse_short_otps(short_opts);
-    auto parsed_long  = parse_long_opts(long_opts);
+    auto parsed_short = parse_short_args(short_opts);
+    auto parsed_long  = parse_long_args(long_opts);
 
     for(auto it = args.begin(); it != args.end(); it++) {
 

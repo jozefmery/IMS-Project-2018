@@ -1,7 +1,21 @@
 #pragma once
 
+#include <vector>
+#include <memory>
+
+#include <simlib.h>
 
 namespace IMS {
+
+    constexpr auto MINUTE = 60;
+    constexpr auto HOUR = 60 * MINUTE;
+    constexpr auto DAY = 24 * HOUR;
+
+    constexpr auto SIM_TIME_DAYS = 1000;
+
+    constexpr auto MIN_LEAF_GROW_TIME = 6.5f;
+    constexpr auto GROW_TIME_OFFSET = 3.0f;
+    constexpr auto GROW_TIME_DELTA = 0.75f;
 
     // forward declarations
     struct ParsedArguments;
@@ -19,7 +33,7 @@ namespace IMS {
 
         constexpr float SOIL_PH = 5.0f;
 
-        constexpr int IDEAL_YIELD = 150; // kg
+        constexpr int IDEAL_YIELD = 135; // kg
     }
 
     class CornSim {
@@ -29,7 +43,7 @@ namespace IMS {
         CornSim() = delete;
         CornSim(const int argc, const char* const argv[]);
 
-    private /* structures and classes */:
+    public /* structures and classes */:
         
         struct Options {
 
@@ -50,7 +64,7 @@ namespace IMS {
 
     public /* methods */:
 
-        void execute();
+        void run();
 
     private /* static methods */:
 
@@ -65,9 +79,10 @@ namespace IMS {
 
     private /* methods */:
 
+        void init();
+
     private /* members */:
 
         Options m_opts;
-
     };
 }

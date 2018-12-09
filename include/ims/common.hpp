@@ -31,6 +31,8 @@ namespace IMS {
 
         ExitCode m_exit_code;
     };
+
+    void message(const std::string& message, const bool verbose);
 }
 
 template <typename T>

@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
 
         IMS::CornSim sim(std::as_const(argc), std::as_const(argv));
 
-        sim.execute();
+        sim.run();
 
     } catch(IMS::FatalError& e) {
 

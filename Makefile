@@ -43,7 +43,7 @@ CFLAGS      = -pedantic -Wextra -Wall $(PLATFORM)
 RELCFLAGS	= -O2 -s -DNDEBUG -flto
 DCFLAGS		= -g -O0
 STD			= c++17
-EXTRACFLAGS = #-Werror
+EXTRACFLAGS = -Werror
 
 # additional includes
 INCLUDES 	= $(addprefix -I,)
@@ -68,7 +68,7 @@ SOURCES  = $(wildcard $(SRCDIR)/*.$(SRCEXT))
 RELOBJECTS  = $(patsubst $(SRCDIR)/%.$(SRCEXT), $(OBJDIR)/$(RELDIR)/%.$(OBJEXT), $(SOURCES))
 DOBJECTS  = $(patsubst $(SRCDIR)/%.$(SRCEXT), $(OBJDIR)/$(DDIR)/%.$(OBJEXT), $(SOURCES))
 # fetch headers
-HEADERS  = $(wildcard $(INCLUDEDIR)/*.$(HDREXT))
+HEADERS  = $(wildcard $(INCLUDEDIR)/**/*.$(HDREXT))
 
 # object directory target
 $(OBJDIR):
@@ -104,12 +104,12 @@ release: $(BINDIR)/$(TARGET)
 debug: $(BINDIR)/$(TARGET)_d
 
 # run
-run: $(BINDIR)/$(TARGET)
+run: release
 	@./$(BINDIR)/$(TARGET) $(ARGS)
 
 # run with clear
-crun: $(BINDIR)/$(TARGET)
-	clear
+crun: release
+	@clear
 	@./$(BINDIR)/$(TARGET) $(ARGS)
 
 # clean directory

@@ -1,0 +1,74 @@
+File:       README
+Date:       9.12.2018
+Project:    IMS - Corn Growth Simulation
+Authors:
+            xdovic01@stud.fit.vutbr.cz
+            xmeryj00@stud.fit.vutbr.cz
+
+--- COMPILATION ---
+
+Compile with release flags:
+    
+    "make" or "make release"
+
+Compile with debug flags:
+
+    "make debug"
+
+--- RUNNING WITH MAKE ---
+
+Run release version:
+
+    "make run ARGS="arg1 arg2 ..."
+
+Run release version and clean (silently):
+
+    "make crun ARGS="arg1 arg2 ..."
+
+--- OTHER MAKEFILE TARGETS ---
+
+Clean generated files:
+
+    "make clean"
+
+Create archive without repository items:
+
+    "make archive"
+
+--- ARGUMENT EXAMPLES ---
+IMPORTANT:
+
+    using argument --ideal-yield=KG_PER_ARE can produce results which are not in line with the documentation
+    use for experiments
+
+note: assuming directory <Makefile root dir>/bin -- cd bin
+warning: all arguments are case SENSITIVE!
+
+Get help:
+
+    ./cornsim -h
+
+Skip every action and use default values (use -h to see default values):
+
+    ./cornsim
+
+Print extra information:
+
+    ./cornsim -v
+
+Do every possible action:
+
+    ./cornsim -a
+
+Various combinations:
+
+    ./cornsim -va 
+    ./cornsim -av
+
+    # ideal
+    ./cornsim -a --soil-ph=6.0
+
+    # --water is redundant
+    ./cornsim -a --water
+
+    ./cornsim --water --fertilize

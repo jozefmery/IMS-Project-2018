@@ -1,3 +1,12 @@
+/*
+    File:       arg_parse.cpp
+    Date:       9.12.2018
+    Project:    IMS - Corn Growth Simulation
+    Authors:
+                xdovic01@stud.fit.vutbr.cz
+                xmeryj00@stud.fit.vutbr.cz
+*/
+
 #include <cassert>
 #include <cctype>   
 #include <algorithm>
@@ -13,6 +22,7 @@ enum ValueType : char {
 
 using ParsedHelper = std::pair<std::vector<std::string>, std::vector<ValueType>>;
 
+// helper for parsing short option definition
 ParsedHelper parse_short_args(const IMS::ShortOpts& opts) {
 
     ParsedHelper arg_set;
@@ -45,6 +55,7 @@ ParsedHelper parse_short_args(const IMS::ShortOpts& opts) {
     return arg_set;
 }
 
+// helper for parsing long option definition
 ParsedHelper parse_long_args(const IMS::LongOpts& opts) {
 
     ParsedHelper arg_set;

@@ -1,3 +1,12 @@
+/*
+    File:       corn_sim.cpp
+    Date:       9.12.2018
+    Project:    IMS - Corn Growth Simulation
+    Authors:
+                xdovic01@stud.fit.vutbr.cz
+                xmeryj00@stud.fit.vutbr.cz
+*/
+
 #include <sstream>
 #include <iostream>
 #include <cassert>
@@ -201,7 +210,7 @@ private /* methods */:
 
         ss.precision(1);
 
-        ss << "Current minimal growth time is: " << std::fixed << m_min_grow_time << ".";
+        ss << "Current minimal growth time is: " << std::fixed << m_min_grow_time << " days.";
 
         IMS::message(ss.str(), m_opts.verbose);
 
@@ -241,7 +250,7 @@ private /* methods */:
 
         ss.precision(1);
 
-        ss << "Current minimal growth time is: "  << std::fixed << m_min_grow_time << ".";
+        ss << "Current minimal growth time is: " << std::fixed << m_min_grow_time << " days.";
 
         IMS::message(ss.str(), m_opts.verbose);
     }

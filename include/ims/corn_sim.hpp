@@ -1,3 +1,12 @@
+/*
+    File:       corn_sim.hpp
+    Date:       9.12.2018
+    Project:    IMS - Corn Growth Simulation
+    Authors:
+                xdovic01@stud.fit.vutbr.cz
+                xmeryj00@stud.fit.vutbr.cz
+*/
+
 #pragma once
 
 #include <vector>
@@ -7,11 +16,12 @@
 
 namespace IMS {
 
+    // constants
     constexpr auto MINUTE = 60;
     constexpr auto HOUR = 60 * MINUTE;
     constexpr auto DAY = 24 * HOUR;
 
-    constexpr auto SIM_TIME_DAYS = 1000;
+    constexpr auto SIM_TIME_DAYS = 200;
 
     constexpr auto MIN_LEAF_GROW_TIME = 6.5f;
     constexpr auto GROW_TIME_OFFSET = 3.0f;

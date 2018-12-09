@@ -1,3 +1,12 @@
+/*
+    File:       common.hpp
+    Date:       9.12.2018
+    Project:    IMS - Corn Growth Simulation
+    Authors:
+                xdovic01@stud.fit.vutbr.cz
+                xmeryj00@stud.fit.vutbr.cz
+*/
+
 #pragma once
 #include <stdexcept>
 #include <string>
@@ -9,6 +18,7 @@ constexpr auto PROGRAM_NAME = "cornsim";
 
 namespace IMS {
 
+    // use as return value from main
     enum ExitCode : int {
 
         OK = 0,
@@ -33,38 +43,4 @@ namespace IMS {
     };
 
     void message(const std::string& message, const bool verbose);
-}
-
-template <typename T>
-std::ostream& operator<< (std::ostream& stream, const std::vector<T>& vec) {
-    
-    if(vec.empty()) {
-
-        stream << "[]";
-    }
-    else {
-    
-        stream << '[';
-        std::copy(vec.begin(), vec.end(), std::ostream_iterator<T>(stream, ", "));
-        stream << "\b\b]";
-    }
-
-    return stream;
-}
-
-template <typename T>
-std::ostream& operator<< (std::ostream& stream, const std::set<T>& set) {
-    
-    if(set.empty()) {
-
-        stream << "{}";
-    }
-    else {
-    
-        stream << '{';
-        std::copy(set.begin(), set.end(), std::ostream_iterator<T>(stream, ", "));
-        stream << "\b\b}";
-    }
-
-    return stream;
 }

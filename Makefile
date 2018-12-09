@@ -1,8 +1,9 @@
 #	File:    Makefile
-# 	Project: IMS
-#	Authors: Denis Dovičic	xdovic01@stud.fit.vutbr.cz
-#			 Jozef Méry 	xmeryj00@stud.fit.vutbr.cz
 #	Date:    20.11.2018
+# 	Project: IMS - Corn Growth Simulation
+#	Authors: 
+#				Denis Dovičic	xdovic01@stud.fit.vutbr.cz
+#			 	Jozef Méry 		xmeryj00@stud.fit.vutbr.cz
 
 # $@ - target
 # $< - first dep
@@ -25,7 +26,7 @@ INCLUDEDIR 	= include
 ARCHIVELIST = $(SRCDIR)/ $(INCLUDEDIR)/ Makefile README
 
 # helper programs
-ARCHIVER 	= zip
+ARCHIVER 	= zip -r
 DIRMAKER 	= @mkdir -p
 
 # target name

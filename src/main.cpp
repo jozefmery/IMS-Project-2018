@@ -1,3 +1,12 @@
+/*
+    File:       main.cpp
+    Date:       9.12.2018
+    Project:    IMS - Corn Growth Simulation
+    Authors:
+                xdovic01@stud.fit.vutbr.cz
+                xmeryj00@stud.fit.vutbr.cz
+*/
+
 #include <iostream>
 #include <utility>
 

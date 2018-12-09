@@ -1,6 +1,9 @@
 #pragma once
 #include <stdexcept>
 #include <string>
+#include <set>
+#include <iterator>
+#include <vector>
 
 constexpr auto PROGRAM_NAME = "cornsim"; 
 
@@ -28,4 +31,38 @@ namespace IMS {
 
         ExitCode m_exit_code;
     };
+}
+
+template <typename T>
+std::ostream& operator<< (std::ostream& stream, const std::vector<T>& vec) {
+    
+    if(vec.empty()) {
+
+        stream << "[]";
+    }
+    else {
+    
+        stream << '[';
+        std::copy(vec.begin(), vec.end(), std::ostream_iterator<T>(stream, ", "));
+        stream << "\b\b]";
+    }
+
+    return stream;
+}
+
+template <typename T>
+std::ostream& operator<< (std::ostream& stream, const std::set<T>& set) {
+    
+    if(set.empty()) {
+
+        stream << "{}";
+    }
+    else {
+    
+        stream << '{';
+        std::copy(set.begin(), set.end(), std::ostream_iterator<T>(stream, ", "));
+        stream << "\b\b}";
+    }
+
+    return stream;
 }
